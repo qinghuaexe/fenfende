@@ -1,0 +1,34 @@
+<view class="person-header-back">
+  <image class="person-header-img" src="/static/images/vip-bg.png" alt="头部背景"></image>
+  <view class="person-header">
+    <image class="person-header-avater" src="/static/images/avator.png" alt="头像"></image>
+    <view class="person-header-card">
+      <view class="person-header-info">
+        <view class="person-header-name">一直很淡定</view>
+        <view class="person-header-vip">
+          <image class="person-vip-icon" src="/static/icon/vip-1.png" alt="VIP" />
+          <view class="person-vip-text">
+            <text class="vip-text-1">会员等级：</text>
+            <text class="vip-text-2">终身VIP</text>
+          </view>
+        </view>
+      </view>
+      <view class="person-big-vip">VIP</view>
+    </view>
+  </view>
+</view>
+<view class="vip-recharge">
+  <view class="vip-recharge-title">请选择充值套餐</view>
+  <view class="vip-recharge-detail">
+    <view class="vip-recharge-item {{currentIndex === index ? 'active': ''}}" bindtap="tabClick" wx:for="{{rechargeList}}" wx:key="index" data-index="{{index}}">
+      <view class="recharge-item-flex">
+        <view class="recharge-item-amount {{currentIndex === index ? 'active': ''}}">
+          {{item.name}}
+        </view>
+        <view class="recharge-item-des">{{item.des}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="current-amount">支付金额{{rechargeList[currentIndex].name}}</view>
+  <view class="submit">确认</view>
+</view>

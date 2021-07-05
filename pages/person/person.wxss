@@ -1,0 +1,227 @@
+.person-wrapper {
+  width: 100%;
+}
+/* 个人卡片样式 */
+.person-header-back {
+  width: 100%;
+  height: 354rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.person-header-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 354rpx;
+  z-index: -99;
+}
+
+.person-header {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  display: flex;
+  align-items: center;
+}
+.person-header-avater {
+  width: 124rpx;
+  height: 124rpx;
+  border: 4rpx solid #ffffff;
+  border-radius: 50%;
+}
+
+.person-header-card {
+  width: 532rpx;
+  height: 124rpx;
+  margin-left: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.person-header-info {
+  height: 96rpx;
+}
+
+.person-header-name {
+  width: 90px;
+  height: 25px;
+  opacity: 1;
+  font-size: 18px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #ffffff;
+  line-height: 25px;
+}
+
+.person-header-id {
+  margin-top: 6rpx;
+  height: 20px;
+  opacity: 1;
+  font-size: 14px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #ffffff;
+  line-height: 20px;
+}
+.person-header-vip {
+  height: 96rpx;
+  display: flex;
+}
+
+.person-vip-icon {
+  margin-top: 3px;
+  width: 21px;
+  height: 14px;
+}
+
+.person-vip-text {
+  margin-left: 4px;
+  height: 17px;
+  line-height: 17px;
+}
+
+.vip-text-1 {
+  opacity: 1;
+  font-size: 12px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #ffffff;
+  line-height: 17px;
+}
+
+.vip-text-2 {
+  height: 17px;
+  opacity: 1;
+  font-size: 12px;
+  font-family: PingFangSC, PingFangSC-Semibold;
+  font-weight: 600;
+  text-align: left;
+  color: #ffc42a;
+  line-height: 17px;
+}
+
+/* 账户状况 */
+
+.person-detail-wrapper {
+  width: 92%;
+  margin: 0 auto;
+  z-index: 1000;
+  margin-top: -112rpx;
+  height: 178rpx;
+  background: #ffffff;
+  border-radius: 8rpx;
+  box-shadow: 0px 2px 8px 0px rgba(200, 200, 200, 0.5);
+}
+
+.person-detail {
+  height: 178rpx;
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.person-detail-item {
+  z-index: 999;
+  text-align: center;
+}
+
+.detail-item-num {
+  text-align: center;
+  height: 29px;
+  opacity: 1;
+  font-size: 21px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  color: #666666;
+  line-height: 29px;
+}
+
+.detail-item-num .small {
+  margin-left: -5px;
+  font-size: 14px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #666666;
+}
+
+.detail-item-QR {
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.detail-item-name {
+  margin-top: 5px;
+  text-align: center;
+  height: 20px;
+  opacity: 1;
+  font-size: 14px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+
+  color: #999999;
+  line-height: 20px;
+}
+
+.person-ad {
+  width: 92%;
+  height: 152rpx;
+  margin: 50rpx auto;
+  opacity: 1;
+  border-radius: 8rpx;
+}
+
+.person-ad .person-ad-img {
+  width: 100%;
+  height: 152rpx;
+}
+
+.person-item-list {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.list-item {
+  width: 100%;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+
+.list-item.button {
+  width: 100% !important;
+  background: #ffffff;
+  border-radius: 0;
+}
+
+.list-item-title {
+  display: flex;
+  align-items: center;
+}
+
+.list-item-name {
+  margin-left: 7px;
+  font-size: 14px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #666666;
+}
+
+.list-item-icon {
+  width: 21px;
+  height: 21px;
+}
+
+.arrow {
+  width: 9px;
+  height: 13px;
+}

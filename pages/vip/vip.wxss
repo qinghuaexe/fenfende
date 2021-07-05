@@ -1,0 +1,217 @@
+.person-header-back{
+  width: 100%;
+  height: 444rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.person-header-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 480rpx;
+  z-index: -99;
+}
+
+.person-header{
+  width: 88%;
+  height: 212rpx;
+  margin: 0 auto;
+  margin-top: 80rpx;
+  padding: 0 10px ;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(270deg,#f2cb78, #ffdf9f);
+  border-radius: 8px;
+}
+.person-header-avater{
+  width: 124rpx;
+  height: 124rpx;
+  border: 4rpx solid #ffffff;
+  border-radius: 50%;
+}
+
+.person-header-card{
+  width: 532rpx;
+  height: 124rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.person-header-info{
+  margin-left: 16px;
+  height: 96rpx;
+}
+
+.person-header-name{
+  width: 90px;
+  height: 25px;
+  opacity: 1;
+  font-size: 18px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #B68A2F;
+  line-height: 25px;
+}
+
+.person-header-id{
+  margin-top: 6rpx;
+  height: 20px;
+  opacity: 1;
+  font-size: 14px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #ffffff;
+  line-height: 20px;
+}
+.person-header-vip{
+  height: 96rpx;
+  display: flex;
+
+}
+
+.person-vip-icon{
+  margin-top: 3px;
+  width: 21px;
+  height: 14px;
+}
+
+.person-vip-text{
+  margin-left: 4px;
+  height: 17px;
+  line-height: 17px;
+}
+
+.vip-text-1{
+  opacity: 1;
+  font-size: 12px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #B68A2F;
+  line-height: 17px;
+}
+
+.vip-text-2{
+  height: 17px;
+  opacity: 1;
+  font-size: 12px;
+  font-family: PingFangSC, PingFangSC-Semibold;
+  font-weight: 600;
+  text-align: left;
+  color: #EB0E0E;
+  line-height: 17px;
+}
+
+.person-big-vip{
+  height: 43px;
+  line-height: 50px;
+  opacity: 0.68;
+  font-size: 48px;
+  font-family: Beirut, Beirut-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #ffe2b0;
+  letter-spacing: 4px
+}
+
+/* 充值套餐样式 */
+
+.vip-recharge{
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  margin-top: -60rpx;
+}
+
+.vip-recharge-title{
+  width: 92%;
+  height: 44rpx;
+  margin: 0 auto;
+  padding: 28rpx 0;
+  opacity: 1;
+  font-size: 16px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #333333;
+  line-height: 22px;
+}
+
+.vip-recharge-detail{
+  width: 92%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vip-recharge-item{
+  width: 206rpx;
+  height: 170rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+  border: 2rpx solid #e1e1e1;
+}
+
+.vip-recharge-item.active{
+  border: 2rpx solid #ebb65a;
+}
+
+
+
+.recharge-item-amount{
+  width: 100%;
+  font-size: 21px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  color: #666666;
+}
+
+.recharge-item-amount.active{
+  color: #ebb65a;
+}
+
+.recharge-item-des{
+  width: 100%;
+  font-size: 12px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  color: #999999;
+}
+
+.current-amount{
+  margin-top: 64rpx;
+  width: 100%;
+  height: 29px;
+  opacity: 1;
+  font-size: 21px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: center;
+  color: #ebb65a;
+}
+
+.submit{
+  
+  width: 470rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 60rpx auto;
+  opacity: 1;
+  background: #f0ca88;
+  border-radius: 48rpx;
+  text-align: center;
+  font-size: 21px;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  color: #ffffff;
+}
+

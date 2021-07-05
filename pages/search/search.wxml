@@ -1,0 +1,2 @@
+<view>我是找答案</view>
+<button bindtap="haha">点我</button>

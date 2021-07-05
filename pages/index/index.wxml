@@ -1,0 +1,58 @@
+<!-- index.wxml -->
+<view class="home-wrapper">
+  <view class="head-img"></view>
+  <view class="home-content">
+    <view class="home-function">
+      <view class="home-function-item" bindtap="handleGoVip">
+        <image class="item-img" src="/static/images/home-fun-1.png" />
+        <view class="item-name">会员充值</view>
+      </view>
+      <view class="home-function-item" bindtap="handleGomyPop">
+        <image class="item-img" src="/static/images/home-fun-2.png" />
+        <view class="item-name">我要推广</view>
+      </view>
+      <view class="home-function-item" bindtap="handleGoPop">
+        <image class="item-img" src="/static/images/home-fun-3.png" />
+        <view class="item-name">代理申请</view>
+      </view>
+      <view class="home-function-item">
+        <image class="item-img" src="/static/images/home-fun-4.png" />
+        <view class="item-name">使用教程</view>
+      </view>
+    </view>
+    <view class="home-line"></view>
+    <view class="home-swiper">
+      <swiper autoplay="{{true}}" vertical="{{true}}" circular="{{true}}">
+        <block wx:for="{{swiperList}}" wx:key="item" class="swiper-wrapper">
+          <swiper-item>
+            <view class="swiper-item" wx:for="{{item}}" wx:key="index">
+              <view class="swiper-man-info">
+                <image class="swiper-man-avator" src="{{item.avator}}" />
+                <view class="swiper-man-name">{{item.name}}</view>
+              </view>
+              <view class="swiper-man-text">成功搜索答题一次</view>
+              <view class="swiper-man-text">{{item.time}}</view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="home-line-1"></view>
+  </view>
+  <view class="home-answer">
+    <view class="head-answer-1" data-type="pic" bindtap="handleGoSearch">
+      <image class="answer-icon" src="/static/icon/answer-pic.png" />
+      上传截图答题
+    </view>
+    <view class="head-answer-2 frist" data-type="ca" bindtap="handleGoSearch">
+      <image class="answer-icon" src="/static/icon/answer-camera.png" />
+      <view class="text">拍照答题</view>
+      <image class="g-arrow" src="/static/icon/g-arrow.png" />
+    </view>
+    <view class="head-answer-2" data-type="text" bindtap="handleGoSearch">
+      <image class="answer-icon" src="/static/icon/answer-text.png" />
+      <view class="text">文字答题</view>
+      <image class="g-arrow" src="/static/icon/g-arrow.png" />
+    </view>
+  </view>
+</view>

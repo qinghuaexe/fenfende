@@ -1,0 +1,58 @@
+<view class="group-wrapper">
+  <view class="group-head">
+    <view class="group-item-list">
+      <view class="group-item">
+        <view class="group-item-number1">800分</view>
+        <view class="group-item-des1">总积分</view>
+      </view>
+      <view class="group-item">
+        <view class="group-item-number2">500分</view>
+        <view class="group-item-des2">总积分</view>
+      </view>
+      <view class="group-item" bindtap="handleGoWithdraw">
+        <view class="group-item-tx">提现</view>
+      </view>
+    </view>
+  </view>
+  <view class="group-people-detail">
+    <view class="group-people">
+      <view class="group-people-number">
+        245
+        <text class="small">人</text>
+      </view>
+      <view class="group-people-des">推广总人数</view>
+    </view>
+    <view class="middle-line"></view>
+    <view class="group-people">
+      <view class="group-people-number">
+        45
+        <text class="small">人</text>
+      </view>
+      <view class="group-people-des">推广代理人数</view>
+    </view>
+  </view>
+  <view class="group-search">
+    <image class="group-search-icon" src="/static/icon/search.png" alt="搜索" />
+    <input class="group-search-input" type="text" placeholder="点击搜索会员名称" />
+    <view class="group-search-btn">搜索</view>
+  </view>
+  <view class="group-nav-wrapper">
+    <view class="group-nav" bindtap="selectNav" wx:for="{{groupNavList}}" wx:key="index" data-index="{{index}}">
+      <view class="group-nav-item">{{item.name}} ({{item.number}}人)</view>
+      <text class="grou-nav-line {{currentIndex === index ? 'active':''}}"></text>
+    </view>
+  </view>
+  <view class="group-boundary"></view>
+  <view class="group-list-wrapper">
+    <view class="group-list-item" wx:for="{{groupList}}" wx:key="index">
+      <view class="group-info-wrapper">
+        <image class="group-avator" src="{{item.url}}" />
+        <view class="group-info">
+          <view class="group-name">{{item.name}}</view>
+          <view class="group-cost">消费{{item.cost}}元</view>
+        </view>
+      </view>
+      <view class="group-tc">+{{item.tc}}元</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<view class="record-wrapper">
+  <view class="record-list" wx:for="{{record}}" wx:key="item">
+    <view class="record-item-1">
+      <view class="record-used">-{{item.used}}积分</view>
+      <view class="record-state">{{stateList[item.state]}}</view>
+    </view>
+    <view class="record-item-2">
+      <view class="record-balance">余额：{{item.balance}}积分</view>
+      <view class="record-time">{{item.time}}</view>
+    </view>
+  </view>
+</view>

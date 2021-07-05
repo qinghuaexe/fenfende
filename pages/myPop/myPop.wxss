@@ -1,0 +1,103 @@
+.my-pop-wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.my-pop-bg {
+    width: 100%;
+    height: 100vh;
+}
+
+.my-pop-content {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 5%;
+    z-index: 999;
+}
+
+.my-pop-des {
+    width: 492rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+    margin: 10rpx auto;
+    opacity: 1;
+    background: #1ad54d;
+    border-radius: 26rpx;
+    opacity: 1;
+    font-size: 14px;
+    font-family: PingFangSC, PingFangSC-Semibold;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.my-pop-des2 {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 999;
+    top: 52.5%;
+    font-size: 20px;
+    font-family: PingFangSC, PingFangSC-Semibold;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.my-pop-title {
+    height: 140rpx;
+    opacity: 1;
+    font-size: 100rpx;
+    font-family: PingFangSC, PingFangSC-Semibold;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 140rpx;
+    text-shadow: 0px 2px 7px 0px #097f29;
+}
+
+.my-pop-qrcode {
+    width: 100%;
+    position: absolute;
+    top: 58%;
+    z-index: 999;
+}
+
+.my-qrcode {
+    display: block;
+    width: 250rpx;
+    height: 250rpx;
+    margin: 0 auto;
+}
+
+.my-qrcode-tips {
+    margin-top: 10rpx;
+    height: 36rpx;
+    opacity: 1;
+    font-size: 14px;
+    font-family: HelloFont, HelloFont-Regular;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    line-height: 36rpx;
+}
+
+.my-pop-btn {
+    margin-top: 66rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-1 {
+    width: 294rpx;
+    height: 88rpx;
+    opacity: 1;
+    background: #0b5109;
+    border-radius: 48rpx;
+    font-size: 21px;
+    font-family: PingFangSC, PingFangSC-Regular;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    line-height: 88rpx;
+}

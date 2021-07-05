@@ -1,0 +1,23 @@
+<view class="withdraw-wrapper">
+  <view class="withdraw">
+    <image class="withdraw-bg" src="/static/images/withdraw-bg.png" />
+    <view class="withdraw-card-wrapper">
+      <view class="withdraw-card-detail">
+        <view class="withdraw-card-title">积分余额</view>
+        <view class="withdraw-card-number">500</view>
+        <view class="withdraw-card-title">提示：1积分 = 0.1元</view>
+      </view>
+      <view class="withdraw-record" bindtap="handleGoRecord">提现记录</view>
+    </view>
+  </view>
+</view>
+<view class="withdraw-used">
+  <view class="withdraw-cash">
+    <view class="withdraw-number">{{integration ? integration /10 : 0}}</view>
+    <view class="withdraw-des">兑换人民币</view>
+  </view>
+</view>
+<view class="withdraw-input-wrapper">
+  <input type="digit" class="withdraw-input" model:value="{{integration}}" placeholder="请输入积分" />
+</view>
+<view class="withdraw-submit">提现</view>

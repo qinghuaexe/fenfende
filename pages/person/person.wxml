@@ -1,0 +1,80 @@
+<!-- <button type="primary" bindtap="hahhaha">拍照</button>
+<view>预览</view> -->
+<view class="person-wrapper">
+  <view class="person-header-back">
+    <image class="person-header-img" src="/static/images/person-head-bg.png" alt="头部背景"></image>
+    <view class="person-header">
+      <image class="person-header-avater" src="/static/images/avator.png" alt="头像"></image>
+      <view class="person-header-card">
+        <view class="person-header-info">
+          <view class="person-header-name">一直很淡定</view>
+          <view class="person-header-id">ID：6785857</view>
+        </view>
+        <view class="person-header-vip">
+          <image class="person-vip-icon" src="/static/icon/vip.png" alt="VIP" />
+          <view class="person-vip-text">
+            <text class="vip-text-1">会员等级：</text>
+            <text class="vip-text-2">终身VIP</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="person-detail-wrapper">
+    <view class="person-detail">
+      <view class="person-detail-item">
+        <view class="detail-item-num">10000.00</view>
+        <view class="detail-item-name">您的奖励</view>
+      </view>
+      <view class="person-detail-item">
+        <view class="detail-item-num">
+          20
+          <text class="small">人</text>
+        </view>
+        <view class="detail-item-name">我的团队</view>
+      </view>
+      <view class="person-detail-item" bindtap="handleGomyPop">
+        <view class="detail-item-num">
+          <image class="detail-item-QR" src="/static/icon/QRcode.png" alt="二维码" />
+        </view>
+        <view class="detail-item-name">我的推广</view>
+      </view>
+    </view>
+  </view>
+  <view class="person-ad">
+    <image class="person-ad-img" src="/static/images/person-ad.png" alt="广告" />
+  </view>
+  <view class="person-item-list">
+    <view class="list-item" bindtap="handleToVip">
+      <view class="list-item-title">
+        <image class="list-item-icon" src="/static/icon/person-list-1.png" alt='图标' />
+        <view class="list-item-name">成为会员</view>
+      </view>
+      <image class="arrow" src="/static/icon/arrow.png" alt='箭头' />
+    </view>
+    <view class="list-item" bindtap="handleToGroup">
+      <view class="list-item-title">
+        <image class="list-item-icon" src="/static/icon/person-list-2.png" alt='图标' />
+        <view class="list-item-name">我的团队</view>
+      </view>
+      <image class="arrow" src="/static/icon/arrow.png" alt='箭头' />
+    </view>
+    <view class="list-item" bindtap="handleToPop">
+      <view class="list-item-title">
+        <image class="list-item-icon" src="/static/icon/person-list-4.png" alt='图标' />
+        <view class="list-item-name">推广得奖励</view>
+      </view>
+      <image class="arrow" src="/static/icon/arrow.png" alt='箭头' />
+    </view>
+    <button class="list-item button" open-type="contact" size="default" session-from="weapp">
+      <view class="list-item-title">
+        <image class="list-item-icon" src="/static/icon/person-list-3.png" alt='图标' />
+        <view class="list-item-name">客服</view>
+      </view>
+      <image class="arrow" src="/static/icon/arrow.png" alt='箭头' />
+    </button>
+    <!-- <view class="list-item">
+      
+    </view> -->
+  </view>
+</view>

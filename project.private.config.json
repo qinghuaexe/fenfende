@@ -1,0 +1,66 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/person/person",
+          "pathName": "pages/person/person",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vip",
+          "pathName": "pages/vip/vip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/group/group",
+          "pathName": "pages/group/group",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/popularize/popularize",
+          "pathName": "pages/popularize/popularize",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/withdraw/withdraw",
+          "pathName": "pages/withdraw/withdraw",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/withdrawRecord/withdrawRecord",
+          "pathName": "pages/withdrawRecord/withdrawRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/myPop/myPop",
+          "pathName": "pages/myPop/myPop",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
