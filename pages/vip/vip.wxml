@@ -30,5 +30,5 @@
     </view>
   </view>
   <view class="current-amount">支付金额{{rechargeList[currentIndex].name}}</view>
-  <view class="submit">确认</view>
+  <view class="submit" bindtap="pay">确认</view>
 </view>

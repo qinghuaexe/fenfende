@@ -128,6 +128,7 @@
 
 .head-answer-1,
 .head-answer-2 {
+    background: #ffffff;
     width: 364rpx;
     height: 98rpx;
     margin: 0 auto;
@@ -149,7 +150,7 @@
 .head-answer-2 {
     color: #33b232;
     height: 78rpx;
-    margin-top: 20rpx;
+    margin-top: 10rpx;
 }
 
 .answer-icon {

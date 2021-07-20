@@ -1,2 +1,91 @@
-<view>我是找答案</view>
-<button bindtap="haha">点我</button>
+<view class="search-content-wrapper">
+  <view class="search-detail">
+    昨日共
+    <text class="text-g">120</text>
+    人，成功答题
+    <text class="text-g">500</text>
+    题
+  </view>
+  <view class="search-amount">
+    剩余答题20次
+    <view class="search-amount-type">已购套餐1</view>
+  </view>
+  <view class="search-type-wrapper" bindtap="handleShowTabs">
+    <view class="search-input">上传截图答案</view>
+    <view class="search-btn">
+      <image class="search-type-icon" src="/static/icon/search-type-1.png" />
+      <image class="arrow-down" src="/static/icon/arrow-down.png" />
+    </view>
+  </view>
+  <view class="search-text" wx:if="{{showTextarea}}">
+    <textarea class="message" name="message" id="message" model:value="{{keyword}}" placeholder="输入文字搜题" cols="30" rows="10"></textarea>
+    <view class="search-text-tips">
+      <label>*</label>
+      提示：文字内容文字内容
+    </view>
+    <view class="search-text-btn">
+      <view class="search-text-confrim" bindtap="resetText">重置</view>
+      <view class="search-text-confrim" bindtap="searchText">搜索</view>
+    </view>
+  </view>
+  <view class="question-list-wrapper">
+    <view class="question-list" wx:if="{{questionList.length}}">
+      <view class="question-item" wx:for="{{questionList}}" wx:key="index">
+        <view class="question-item-title">
+          <label class="question-type-name {{item.type_name ==='单选题' ? 'single' :''}}{{item.type_name ==='多选题' ? 'multiple' :''}}{{item.type_name ==='判断题' ? 'judgment' :''}}{{item.type_name ==='测试题' ? 'test' :''}}">
+            {{item.type_name}}
+          </label>
+          {{item.title}}
+        </view>
+        <view class="question-item-img" wx:if="{{true}}">
+          <image class="question-img" src="/static/images/question-img.png" />
+        </view>
+        <view class="question-select-wrapper">
+          <view class="answer-select" wx:for="{{item.options}}" wx:key="index">
+            {{answerTab[index]}}、{{item}}
+          </view>
+        </view>
+        <view class="question-answer-wrapper">
+          答案：
+          <label wx:for="{{item.correct}}" wx:key="index">{{item}}</label>
+        </view>
+      </view>
+      <view class="question-btn-wrapper">
+        <view class="question-btn">关闭答题</view>
+        <view class="question-btn">继续搜题</view>
+      </view>
+    </view>
+
+    <view class="question-no" wx:elif="{{noResult}}">
+      <image class="question-no-img" src="/static/images/no-question.png" />
+      <view class="question-no-tips">暂无搜索数据，换另一题吧！</view>
+    </view>
+  </view>
+  <view class="search-tips-wrapper" wx:if="{{showTips}}">
+    <view class="search-tips">
+      昨日共 120 人，成功答题 500 题
+      <image class="search-tips-close" src="/static/icon/close.png" catchtap="closeTips" />
+    </view>
+  </view>
+  <view class="fixed" wx:if="{{showTabs}}">
+    <view class="search-select-mask" mut-bind:tap="closeTabs"></view>
+    <view class="search-select-tabs">
+      <view class="select-tabs" catchtap="handleSearch" data-type="ca">
+        <image class="select-image-1" src="/static/icon/answer-camera.png" />
+        <view class="select-name">拍照答题</view>
+      </view>
+      <view class="select-tabs" catchtap="handleSearch" data-type="pic">
+        <image class="select-image-2" src="/static/icon/answer-pic-g.png" />
+        <image class="select-image-best" src="/static/icon/best.png" />
+        <view class="select-name">截图答题</view>
+      </view>
+      <view class="select-tabs" catchtap="handleSearch" data-type="text">
+        <image class="select-image-3" src="/static/icon/answer-text.png" />
+        <view class="select-name">文字答题</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="search-text">
+    <textarea class="message" name="message" id="message" placeholder="" cols="30" rows="10"></textarea>
+  </view> -->
+</view>

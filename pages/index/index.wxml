@@ -39,7 +39,23 @@
     </view>
     <view class="home-line-1"></view>
   </view>
-  <view class="home-answer">
+  <view class="home-answer" wx:if="{{!phoneStatus}}">
+    <button class="head-answer-1" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >
+      <image class="answer-icon" src="/static/icon/answer-pic.png" />
+      上传截图答题
+    </button>
+    <button class="head-answer-2 frist" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >
+      <image class="answer-icon" src="/static/icon/answer-camera.png" />
+      <view class="text">拍照答题</view>
+      <image class="g-arrow" src="/static/icon/g-arrow.png" />
+    </button>
+    <button class="head-answer-2" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >
+      <image class="answer-icon" src="/static/icon/answer-text.png" />
+      <view class="text">文字答题</view>
+      <image class="g-arrow" src="/static/icon/g-arrow.png" />
+    </button>
+  </view>
+  <view class="home-answer" wx:else>
     <view class="head-answer-1" data-type="pic" bindtap="handleGoSearch">
       <image class="answer-icon" src="/static/icon/answer-pic.png" />
       上传截图答题

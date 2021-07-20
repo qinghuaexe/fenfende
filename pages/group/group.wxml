@@ -2,12 +2,8 @@
   <view class="group-head">
     <view class="group-item-list">
       <view class="group-item">
-        <view class="group-item-number1">800分</view>
-        <view class="group-item-des1">总积分</view>
-      </view>
-      <view class="group-item">
-        <view class="group-item-number2">500分</view>
-        <view class="group-item-des2">总积分</view>
+        <view class="group-item-number2">500</view>
+        <view class="group-item-des2">剩余积分</view>
       </view>
       <view class="group-item" bindtap="handleGoWithdraw">
         <view class="group-item-tx">提现</view>

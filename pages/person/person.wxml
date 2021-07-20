@@ -1,14 +1,13 @@
-<!-- <button type="primary" bindtap="hahhaha">拍照</button>
-<view>预览</view> -->
+
 <view class="person-wrapper">
   <view class="person-header-back">
     <image class="person-header-img" src="/static/images/person-head-bg.png" alt="头部背景"></image>
     <view class="person-header">
-      <image class="person-header-avater" src="/static/images/avator.png" alt="头像"></image>
+      <image class="person-header-avater" src="{{userInfo.user_img}}" alt="头像"></image>
       <view class="person-header-card">
         <view class="person-header-info">
-          <view class="person-header-name">一直很淡定</view>
-          <view class="person-header-id">ID：6785857</view>
+          <view class="person-header-name">{{userInfo.real_name ? userInfo.real_name : '微信用户'}}</view>
+          <view class="person-header-id">ID：{{userInfo.id_number}}</view>
         </view>
         <view class="person-header-vip">
           <image class="person-vip-icon" src="/static/icon/vip.png" alt="VIP" />
