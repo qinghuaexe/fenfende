@@ -1,10 +1,7 @@
-const token = wx.getStorageSync('token') || ''
-
-
-
 const baseUrl = 'https://admin.ok8809.com'
 
 const http = options => {
+    const token = wx.getStorageSync('token')
     if (token) {
         options.data.token = token
     }

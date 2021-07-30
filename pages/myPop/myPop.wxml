@@ -6,7 +6,7 @@
   </view>
   <view class="my-pop-des2">12123学法减分好帮手</view>
   <view class="my-pop-qrcode">
-    <image class="my-qrcode" src="/static/images/my-pop-qrcode.png" />
+    <image class="my-qrcode" src="{{qrCodeUrl}}" />
     <view class="my-qrcode-tips">长按二维码或扫一扫</view>
     <view class="my-pop-btn">
       <view class="btn-1">分享</view>

@@ -1,62 +1,61 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/search/search",
-    "pages/person/person",
-    "pages/vip/vip",
-    "pages/group/group",
-    "pages/popularize/popularize",
-    "pages/withdraw/withdraw",
-    "pages/withdrawRecord/withdrawRecord",
-    "pages/myPop/myPop"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#999",
-    "backgroundColor": "#ffffff",
-    "selectedColor": "#E72717",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "static/tabs/home.png",
-        "selectedIconPath": "static/tabs/home-active.png"
-      },
-      {
-        "pagePath": "pages/search/search",
-        "iconPath": "static/tabs/search.png",
-        "selectedIconPath": "static/tabs/search-active.png"
-      },
-      {
-        "pagePath": "pages/person/person",
-        "iconPath": "static/tabs/person.png",
-        "selectedIconPath": "static/tabs/person-active.png"
-      }
+    "pages": [
+        "pages/index/index",
+        "pages/search/search",
+        "pages/person/person",
+        "pages/vip/vip",
+        "pages/group/group",
+        "pages/popularize/popularize",
+        "pages/withdraw/withdraw",
+        "pages/withdrawRecord/withdrawRecord",
+        "pages/myPop/myPop",
+        "pages/test/test"
     ],
-    "items": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "static/tabs/home.png",
-        "selectedIconPath": "static/tabs/home-active.png"
-      },
-      {
-        "pagePath": "pages/search/search",
-        "iconPath": "static/tabs/search.png",
-        "selectedIconPath": "static/tabs/search-active.png"
-      },
-      {
-        "pagePath": "pages/person/person",
-        "iconPath": "static/tabs/person.png",
-        "selectedIconPath": "static/tabs/person-active.png"
-      }
-    ],
-    "position": "bottom"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999",
+        "backgroundColor": "#ffffff",
+        "selectedColor": "#E72717",
+        "borderStyle": "black",
+        "list": [{
+                "pagePath": "pages/index/index",
+                "iconPath": "static/tabs/home.png",
+                "selectedIconPath": "static/tabs/home-active.png"
+            },
+            {
+                "pagePath": "pages/search/search",
+                "iconPath": "static/tabs/search.png",
+                "selectedIconPath": "static/tabs/search-active.png"
+            },
+            {
+                "pagePath": "pages/person/person",
+                "iconPath": "static/tabs/person.png",
+                "selectedIconPath": "static/tabs/person-active.png"
+            }
+        ],
+        "items": [{
+                "pagePath": "pages/index/index",
+                "iconPath": "static/tabs/home.png",
+                "selectedIconPath": "static/tabs/home-active.png"
+            },
+            {
+                "pagePath": "pages/search/search",
+                "iconPath": "static/tabs/search.png",
+                "selectedIconPath": "static/tabs/search-active.png"
+            },
+            {
+                "pagePath": "pages/person/person",
+                "iconPath": "static/tabs/person.png",
+                "selectedIconPath": "static/tabs/person-active.png"
+            }
+        ],
+        "position": "bottom"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

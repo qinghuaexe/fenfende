@@ -1,5 +1,21 @@
 import http from './http'
 
+const homeSlide = (data = {}) => {
+    return http({ url: '/api/homeSlideShow', data })
+}
+
+const getUserInfo = (data = {}) => {
+    return http({ url: '/api/user/getUserInfo', data })
+}
+
+const countUserActive = (data = {}) => {
+    return http({ url: '/api/countUserActive', data })
+}
+
+const countYesTerDayActive = (data = {}) => {
+    return http({ url: '/api/countYesTerDayActive', data })
+}
+
 const getQusetList = (data) => {
     return http({ url: '/api/question/getQuestionList', data })
 }
@@ -21,14 +37,28 @@ const groupList = (data) => {
 }
 
 const payTest = (data) => {
-    return http({ url: '/api/pay/postPay', method: 'POST', data })
+    return http({ url: '/api/pay/postPayV3', method: 'POST', data })
+}
+
+const payList = (data) => {
+    return http({ url: '/api/pay/pay-info', data })
+}
+
+const pushCode = (data) => {
+    return http({ url: '/api/place/createBuffer', data })
 }
 
 export default {
+    homeSlide,
+    countUserActive,
+    countYesTerDayActive,
     getQusetList,
     miniLogin,
     commitUserInfo,
     decryptUserPhone,
     groupList,
-    payTest
+    payTest,
+    payList,
+    pushCode,
+    getUserInfo
 }

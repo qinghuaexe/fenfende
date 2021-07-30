@@ -23,12 +23,12 @@
     <view class="vip-recharge-item {{currentIndex === index ? 'active': ''}}" bindtap="tabClick" wx:for="{{rechargeList}}" wx:key="index" data-index="{{index}}">
       <view class="recharge-item-flex">
         <view class="recharge-item-amount {{currentIndex === index ? 'active': ''}}">
-          {{item.name}}
+          {{item.money}}元
         </view>
-        <view class="recharge-item-des">{{item.des}}</view>
+        <view class="recharge-item-des">{{item.goods_name}}</view>
       </view>
     </view>
   </view>
-  <view class="current-amount">支付金额{{rechargeList[currentIndex].name}}</view>
+  <view class="current-amount">支付金额{{rechargeList[currentIndex].money}}元</view>
   <view class="submit" bindtap="pay">确认</view>
 </view>

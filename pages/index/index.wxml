@@ -1,6 +1,13 @@
 <!-- index.wxml -->
 <view class="home-wrapper">
-  <view class="head-img"></view>
+  <view class="head-img">
+    <swiper  autoplay="{{true}}"  circular="{{true}}" class="home-swiper-img">
+        <block wx:for="{{homeSlide}}" wx:key="item" >
+          <swiper-item>
+            <image class="swiper-image" src="{{item}}" alt="轮播图" srcset=""  /> 
+          </swiper-item>
+        </block>
+      </swiper></view>
   <view class="home-content">
     <view class="home-function">
       <view class="home-function-item" bindtap="handleGoVip">
@@ -15,7 +22,7 @@
         <image class="item-img" src="/static/images/home-fun-3.png" />
         <view class="item-name">代理申请</view>
       </view>
-      <view class="home-function-item">
+      <view class="home-function-item" bindtap="handleGoTest">
         <image class="item-img" src="/static/images/home-fun-4.png" />
         <view class="item-name">使用教程</view>
       </view>
@@ -27,11 +34,11 @@
           <swiper-item>
             <view class="swiper-item" wx:for="{{item}}" wx:key="index">
               <view class="swiper-man-info">
-                <image class="swiper-man-avator" src="{{item.avator}}" />
-                <view class="swiper-man-name">{{item.name}}</view>
+                <image class="swiper-man-avator" src="{{item.user_img}}" />
+                <view class="swiper-man-name">{{item.user_name}}</view>
               </view>
               <view class="swiper-man-text">成功搜索答题一次</view>
-              <view class="swiper-man-text">{{item.time}}</view>
+              <view class="swiper-man-text">{{item.create_time}}</view>
             </view>
           </swiper-item>
         </block>

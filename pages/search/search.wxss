@@ -154,12 +154,21 @@
 }
 
 .select-tabs {
+    background: #ffffff;
     width: 33.33%;
     height: 135rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+.select-name {
+    opacity: 1;
+    font-size: 16px;
+    font-family: PingFangSC, PingFangSC-Regular;
+    font-weight: 400;
+    color: #33b232;
 }
 
 .select-image-2 {

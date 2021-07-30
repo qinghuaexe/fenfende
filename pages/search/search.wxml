@@ -1,14 +1,14 @@
 <view class="search-content-wrapper">
   <view class="search-detail">
     昨日共
-    <text class="text-g">120</text>
+    <text class="text-g">{{people}}</text>
     人，成功答题
-    <text class="text-g">500</text>
+    <text class="text-g">{{questionNum}}</text>
     题
   </view>
   <view class="search-amount">
-    剩余答题20次
-    <view class="search-amount-type">已购套餐1</view>
+    剩余答题{{remaining}}次
+    <view class="search-amount-type">已购{{userType}}</view>
   </view>
   <view class="search-type-wrapper" bindtap="handleShowTabs">
     <view class="search-input">上传截图答案</view>
@@ -63,13 +63,13 @@
   </view>
   <view class="search-tips-wrapper" wx:if="{{showTips}}">
     <view class="search-tips">
-      昨日共 120 人，成功答题 500 题
+      昨日共 {{people}} 人，成功答题 {{questionNum}} 题
       <image class="search-tips-close" src="/static/icon/close.png" catchtap="closeTips" />
     </view>
   </view>
   <view class="fixed" wx:if="{{showTabs}}">
     <view class="search-select-mask" mut-bind:tap="closeTabs"></view>
-    <view class="search-select-tabs">
+    <view class="search-select-tabs" wx:if="{{phoneStatus}}">
       <view class="select-tabs" catchtap="handleSearch" data-type="ca">
         <image class="select-image-1" src="/static/icon/answer-camera.png" />
         <view class="select-name">拍照答题</view>
@@ -83,6 +83,21 @@
         <image class="select-image-3" src="/static/icon/answer-text.png" />
         <view class="select-name">文字答题</view>
       </view>
+    </view>
+    <view class="search-select-tabs" wx:if="{{!phoneStatus}}">
+      <button class="select-tabs" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <image class="select-image-1" src="/static/icon/answer-camera.png" />
+        <view class="select-name">拍照答题</view>
+      </button>
+      <button class="select-tabs" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <image class="select-image-2" src="/static/icon/answer-pic-g.png" />
+        <image class="select-image-best" src="/static/icon/best.png" />
+        <view class="select-name">截图答题</view>
+      </button>
+      <button class="select-tabs" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <image class="select-image-3" src="/static/icon/answer-text.png" />
+        <view class="select-name">文字答题</view>
+      </button>
     </view>
   </view>
   <!-- <view class="search-text">

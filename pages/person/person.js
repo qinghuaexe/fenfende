@@ -33,6 +33,9 @@ Page({
                                     real_name: res.userInfo.nickName,
                                     user_img: res.userInfo.avatarUrl
                                 }
+                                if (app.globalData.inviteCode) {
+                                    data.invite_code = app.globalData.inviteCode
+                                }
                                 server.commitUserInfo(data).then(res => {
                                     wx.showToast({
                                         title: res.message,

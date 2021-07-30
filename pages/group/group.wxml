@@ -13,7 +13,7 @@
   <view class="group-people-detail">
     <view class="group-people">
       <view class="group-people-number">
-        245
+        {{promoteNum}}
         <text class="small">人</text>
       </view>
       <view class="group-people-des">推广总人数</view>
@@ -21,7 +21,7 @@
     <view class="middle-line"></view>
     <view class="group-people">
       <view class="group-people-number">
-        45
+        {{proxy}}
         <text class="small">人</text>
       </view>
       <view class="group-people-des">推广代理人数</view>
@@ -42,13 +42,13 @@
   <view class="group-list-wrapper">
     <view class="group-list-item" wx:for="{{groupList}}" wx:key="index">
       <view class="group-info-wrapper">
-        <image class="group-avator" src="{{item.url}}" />
+        <image class="group-avator" src="{{item.user_img}}" />
         <view class="group-info">
-          <view class="group-name">{{item.name}}</view>
-          <view class="group-cost">消费{{item.cost}}元</view>
+          <view class="group-name">{{item.real_name}}</view>
+          <view class="group-cost">充值{{item.money}}元</view>
         </view>
       </view>
-      <view class="group-tc">+{{item.tc}}元</view>
+      <view class="group-tc">+{{item.acquire}}元</view>
     </view>
   </view>
 </view>

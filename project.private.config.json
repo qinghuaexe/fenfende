@@ -57,12 +57,19 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
-          "query": "",
+          "query": "haha=123",
           "scene": null
         },
         {
           "name": "pages/search/search",
           "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "功能测试",
+          "pathName": "pages/test/test",
+          "query": "",
           "scene": null
         }
       ]
