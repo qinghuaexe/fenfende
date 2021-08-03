@@ -48,6 +48,26 @@ const pushCode = (data) => {
     return http({ url: '/api/place/createBuffer', data })
 }
 
+const popInfo = (data = {}) => {
+    return http({ url: '/api/place/recommend', data })
+}
+
+const league = (data = {}) => {
+    return http({ url: '/api/user/league', data })
+}
+
+const getWithdraw = (data = {}) => {
+    return http({ url: '/api/pay/getWithdraw', data })
+}
+
+const submitWithdraw = (data) => {
+    return http({ url: '/api/pay/postWithdraw', method: 'POST', data })
+}
+
+const withdrawRecord = (data) => {
+    return http({ url: '/api/pay/withdrawLog', data })
+}
+
 export default {
     homeSlide,
     countUserActive,
@@ -60,5 +80,10 @@ export default {
     payTest,
     payList,
     pushCode,
-    getUserInfo
+    getUserInfo,
+    popInfo,
+    league,
+    getWithdraw,
+    submitWithdraw,
+    withdrawRecord
 }

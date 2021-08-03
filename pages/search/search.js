@@ -5,6 +5,7 @@ const app = getApp()
 
 Page({
     data: {
+        searchType: '', // 搜索方式
         userTypeList: ['普通用户', '普通会员', '终身会员'],
         phoneStatus: '',
         showTips: true,
@@ -32,27 +33,14 @@ Page({
             }
         })
 
-        server.getUserInfo().then(res => {
 
-            if (res.code === 0) {
-                if (res.data.phone) {
-                    this.setData({
-                        phoneStatus: true
-                    })
-                }
-                this.setData({
-                    remaining: res.data.number,
-                    userType: this.data.userTypeList[res.data.user_type]
-                })
-            }
-
-
-
-        })
 
 
     },
     async onShow() {
+        this.setData({
+            searchType: app.globalData.searchType
+        })
         if (app.globalData.searchType === 'pic') {
             app.globalData.searchType = ''
             await wait(500)
@@ -80,7 +68,58 @@ Page({
                 showTextarea: true
             })
         }
+        server.getUserInfo().then(res => {
+
+            if (res.code === 0) {
+                if (res.data.phone) {
+                    this.setData({
+                        phoneStatus: true
+                    })
+                }
+                this.setData({
+                    remaining: res.data.number,
+                    userType: this.data.userTypeList[res.data.user_type]
+                })
+            }
+
+
+
+        })
     },
+    onReachBottom: function() {
+        if (this.data.page >= this.data.totalPage) {
+            wx.showToast({
+                title: '列表已加载完',
+                icon: 'none',
+                duration: 2000
+            })
+            return
+        }
+        var that = this;
+        var pagenum = that.data.page + 1; //获取当前页数并+1
+        that.setData({
+            page: pagenum, //更新当前页数
+        })
+        let data = {
+            page: this.data.page,
+            keyword: this.data.keyword
+        }
+        server.getQusetList(data).then(res => {
+            if (res.code === 0) {
+                let list = this.data.questionList.concat(res.data.list)
+                this.setData({
+                    questionList: list,
+                })
+            } else {
+                wx.showToast({
+                    title: res.message,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
+    },
+
     getPhoneNumber(e) {
         if (e.detail.errMsg === 'getPhoneNumber:ok') {
             let data = {
@@ -109,6 +148,8 @@ Page({
             })
         }
     },
+
+
     searchText: function() {
         if (!this.data.keyword) {
             wx.showToast({
@@ -132,16 +173,14 @@ Page({
                 }
 
                 let tempList = res.data.list.map(item => {
-                    let correctList = item.correct.split('').map(answer => {
-                        let index = this.data.answerTab.indexOf(answer)
-                        return answer + '、' + item.options.split(',')[index]
-                    })
+
                     return {
                         ...item,
                         options: item.options.split(','),
-                        correct: correctList
+
                     }
                 })
+                console.log(tempList)
 
                 this.setData({
                     questionList: tempList,
@@ -188,9 +227,13 @@ Page({
 
     },
     handleSearch: function(e) {
-        let searchType = e.currentTarget.dataset.type
+        if (e.currentTarget.dataset.type) {
+            this.setData({
+                searchType: e.currentTarget.dataset.type
+            })
+        }
         var that = this
-        if (searchType === 'pic') {
+        if (that.data.searchType === 'pic') {
             this.setData({
                 showTextarea: false,
                 questionList: []
@@ -203,7 +246,7 @@ Page({
                     })
                 },
             })
-        } else if (searchType === 'ca') {
+        } else if (that.data.searchType === 'ca') {
             this.setData({
                 showTextarea: false,
                 questionList: []
@@ -217,12 +260,21 @@ Page({
                     })
                 }
             })
-        } else if (searchType === 'text') {
+        } else if (that.data.searchType === 'text') {
             this.setData({
                 showTextarea: true,
                 showTabs: false,
                 questionList: []
             })
         }
+    },
+    closeQuestion: function() {
+        this.setData({
+            searchType: '',
+            keyword: '',
+            noResult: false,
+            showTabs: false,
+            questionList: []
+        })
     }
 })

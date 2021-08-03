@@ -3,7 +3,11 @@ import server from "../../server/server";
 
 Page({
     data: {
+        userType: '',
         userInfo: {},
+        userTypeList: ['普通用户', '普通会员', '终身会员'],
+        scorecard: 0,
+        teamNumber: 0
     },
     onLoad() {
         this.setData({
@@ -11,6 +15,21 @@ Page({
         })
     },
     onShow() {
+        server.getUserInfo().then(res => {
+
+            if (res.code === 0) {
+
+                this.setData({
+                    remaining: res.data.number,
+                    userType: this.data.userTypeList[res.data.user_type],
+                    scorecard: parseInt(res.data.scorecard),
+                    teamNumber: res.data.teamNumber
+                })
+            }
+
+
+
+        })
         if (!app.globalData.userInfo.real_name) {
             var that = this
             wx.showModal({
@@ -19,7 +38,6 @@ Page({
                 confirmText: '获取授权',
                 success(res) {
                     if (res.confirm) {
-                        console.log('触发')
                         wx.getUserProfile({
                             desc: '获取头像、昵称',
                             success: (res) => {
@@ -64,59 +82,7 @@ Page({
 
         }
     },
-    getPhoneNumber(e) {
-        console.log(e)
-        if (e.detail.errMsg === 'getPhoneNumber:ok') {
-            let data = {
-                id_number: app.globalData.userId,
-                iv: e.detail.iv,
-                encryptedData: e.detail.encryptedData
-            }
-            server.commitUserInfo(data).then(res => {
-                console.log(res)
-            })
-        }
-    },
-    // chooseimage: function () {
-    //   var that = this;
-    //   wx.showActionSheet({
-    //     itemList: ['从相册中选择', '拍照'],
-    //     itemColor: "#CED63A",
-    //     success: function (res) {
-    //       if (!res.cancel) {
-    //         if (res.tapIndex == 0) {
-    //           that.chooseWxImage('album')
-    //         } else if (res.tapIndex == 1) {
-    //           that.chooseWxImage('camera')
-    //         }
-    //       }
-    //     }
-    //   })
 
-    // },
-
-    // chooseWxImage: function () {
-    //   var that = this;
-    //   wx.chooseImage({
-    //     sourceType: ['camera'],
-    //     success: function (res) {
-    //       console.log(res);
-    //     }
-    //   })
-    // },
-    // hahhaha: function () {
-    //   wx.showModal({
-    //     title: '提示',
-    //     content: '这是一个模态弹窗',
-    //     success (res) {
-    //       if (res.confirm) {
-    //         console.log('用户点击确定')
-    //       } else if (res.cancel) {
-    //         console.log('用户点击取消')
-    //       }
-    //     }
-    //   })
-    // },
     handleToVip: () => {
         wx.navigateTo({
             url: '../vip/vip'

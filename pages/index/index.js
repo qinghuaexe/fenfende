@@ -9,17 +9,7 @@ Page({
     data: {
         phoneStatus: '',
         homeSlide: [],
-        swiperList: [
-            [{ avator: '/static/images/avator.png', name: '李先生', time: '15:30 48秒' },
-                { avator: '/static/images/avator.png', name: '赵先生', time: '15:30 48秒' }
-            ],
-            [{ avator: '/static/images/avator.png', name: '王先生', time: '15:30 48秒' },
-                { avator: '/static/images/avator.png', name: '马先生', time: '15:30 48秒' }
-            ],
-            [{ avator: '/static/images/avator.png', name: '赵大', time: '15:30 48秒' },
-                { avator: '/static/images/avator.png', name: '李小', time: '15:30 48秒' }
-            ]
-        ]
+        swiperList: []
 
     },
     // 事件处理函数

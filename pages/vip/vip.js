@@ -5,8 +5,10 @@ Page({
     data: {
         rechargeList: [],
         currentIndex: 0,
-        order: ''
-
+        order: '',
+        userInfo: {},
+        userTypeList: ['普通用户', '普通会员', '终身会员'],
+        userType: ''
     },
 
     tabClick: function(e) {
@@ -17,6 +19,9 @@ Page({
         });
     },
     onLoad() {
+        this.setData({
+            userInfo: app.globalData.userInfo
+        })
         server.payList({}).then(res => {
             if (res.code === 0) {
                 res.data = res.data.map(item => {
@@ -38,6 +43,19 @@ Page({
             }
 
         })
+        server.getUserInfo().then(res => {
+
+            if (res.code === 0) {
+
+                this.setData({
+                    userType: this.data.userTypeList[res.data.user_type]
+                })
+            }
+
+
+
+        })
+
     },
     pay: function() {
         let data = {
@@ -47,23 +65,24 @@ Page({
             console.log(res)
             if (res.code === 0) {
                 let info = res.data
+                var that = this
                 wx.requestOrderPayment({
-                    // "appId": "wx96d855cefa0a7e62",
                     timeStamp: info.timeStamp,
                     nonceStr: info.nonceStr,
                     package: info.package,
                     signType: info.signType,
                     paySign: info.paySign,
                     success: function(res) {
-                        console.log(res)
+                        server.getUserInfo().then(res => {
+                            if (res.code === 0) {
+                                that.setData({
+                                    userType: this.data.userTypeList[res.data.user_type]
+                                })
+                            }
+                        })
                     },
-                    fail: function(res) {
-                        console.log(res)
-                        console.log(info)
-                    },
-                    complete: function(res) {
-                        console.log(res)
-                    }
+                    fail: function(res) {},
+                    complete: function(res) {}
                 })
             }
 

@@ -1,16 +1,18 @@
 <view class="my-pop-wrapper">
   <image class="my-pop-bg" src="/static/images/my-pop-bg.jpg" />
   <view class="my-pop-content">
-    <view class="my-pop-title">驾驶证回分</view>
-    <view class="my-pop-des">再也不用担心驾驶证被扣分了</view>
+    <view class="my-pop-title">{{text1}}</view>
+    <view class="my-pop-des">{{text2}}</view>
   </view>
-  <view class="my-pop-des2">12123学法减分好帮手</view>
+  <view class="my-pop-des2">{{text3}}</view>
   <view class="my-pop-qrcode">
     <image class="my-qrcode" src="{{qrCodeUrl}}" />
     <view class="my-qrcode-tips">长按二维码或扫一扫</view>
     <view class="my-pop-btn">
-      <view class="btn-1">分享</view>
-      <view class="btn-1">保存图片</view>
+      <view class="btn-1" bindtap="shareImage">分享</view>
+      <view class="btn-1" bindtap="saveImage">保存图片</view>
     </view>
   </view>
+   <canvas class='canvas' canvas-id="myCanvas" style='width:375px; height:686px'></canvas>
 </view>
+

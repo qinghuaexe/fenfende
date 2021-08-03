@@ -22,7 +22,7 @@
         <image class="item-img" src="/static/images/home-fun-3.png" />
         <view class="item-name">代理申请</view>
       </view>
-      <view class="home-function-item" bindtap="handleGoTest">
+      <view class="home-function-item" >
         <image class="item-img" src="/static/images/home-fun-4.png" />
         <view class="item-name">使用教程</view>
       </view>

@@ -2,7 +2,7 @@
   <view class="group-head">
     <view class="group-item-list">
       <view class="group-item">
-        <view class="group-item-number2">500</view>
+        <view class="group-item-number2">{{jifen}}</view>
         <view class="group-item-des2">剩余积分</view>
       </view>
       <view class="group-item" bindtap="handleGoWithdraw">
@@ -29,8 +29,8 @@
   </view>
   <view class="group-search">
     <image class="group-search-icon" src="/static/icon/search.png" alt="搜索" />
-    <input class="group-search-input" type="text" placeholder="点击搜索会员名称" />
-    <view class="group-search-btn">搜索</view>
+    <input class="group-search-input" type="text" model:value="{{userName}}" placeholder="点击搜索会员名称" />
+    <view class="group-search-btn" bindtap="searchPeople">搜索</view>
   </view>
   <view class="group-nav-wrapper">
     <view class="group-nav" bindtap="selectNav" wx:for="{{groupNavList}}" wx:key="index" data-index="{{index}}">
@@ -49,6 +49,10 @@
         </view>
       </view>
       <view class="group-tc">+{{item.acquire}}元</view>
+    </view>
+    <view class="no-group" wx:if="{{groupList.length === 0}}">
+      <image class="no-group-img" src="/static/images/no-group.png" />
+      <view class="no-group-tips">暂无数据</view>
     </view>
   </view>
 </view>

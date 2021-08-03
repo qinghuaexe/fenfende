@@ -8,8 +8,8 @@
         "pages/popularize/popularize",
         "pages/withdraw/withdraw",
         "pages/withdrawRecord/withdrawRecord",
-        "pages/myPop/myPop",
-        "pages/test/test"
+        "pages/myPop/myPop"
+
     ],
     "window": {
         "backgroundTextStyle": "light",

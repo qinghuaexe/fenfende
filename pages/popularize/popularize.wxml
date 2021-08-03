@@ -9,7 +9,7 @@
     <view class="pop-title1">申请成为代理</view>
   </view>
   <view class="pop-content">
-    <textarea class="message" name="message" id="message" placeholder="平台申请代理只需1000元" cols="30" rows="10"></textarea>
-    <view class="pop-submit">申请代理</view>
+    <textarea class="message" model:value="{{describe}}" name="message" id="message" placeholder="平台申请代理只需1000元" cols="30" rows="10"></textarea>
+    <view class="pop-submit" bindtap="submit">申请代理</view>
   </view>
 </view>

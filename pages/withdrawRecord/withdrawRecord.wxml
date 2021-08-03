@@ -1,12 +1,16 @@
 <view class="record-wrapper">
   <view class="record-list" wx:for="{{record}}" wx:key="item">
     <view class="record-item-1">
-      <view class="record-used">-{{item.used}}积分</view>
-      <view class="record-state">{{stateList[item.state]}}</view>
+      <view class="record-used">-{{item.withdraw_scorecard}}积分</view>
+      <view class="record-state">{{stateList[item.status]}}</view>
     </view>
     <view class="record-item-2">
-      <view class="record-balance">余额：{{item.balance}}积分</view>
-      <view class="record-time">{{item.time}}</view>
+      <view class="record-balance">余额：{{item.surplus_scorecard}}积分</view>
+      <view class="record-time">{{item.create_time}}</view>
     </view>
+  </view>
+  <view class="no-record" wx:if="{{record.length === 0}}">
+    <image class="no-record-img" src="/static/images/no-record.png"  />
+    <view class="no-record-tips">暂无数据</view>
   </view>
 </view>

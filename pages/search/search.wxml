@@ -37,8 +37,8 @@
           </label>
           {{item.title}}
         </view>
-        <view class="question-item-img" wx:if="{{true}}">
-          <image class="question-img" src="/static/images/question-img.png" />
+        <view class="question-item-img" wx:if="{{item.img}}">
+          <image class="question-img" src="{{item.img}}" />
         </view>
         <view class="question-select-wrapper">
           <view class="answer-select" wx:for="{{item.options}}" wx:key="index">
@@ -46,13 +46,12 @@
           </view>
         </view>
         <view class="question-answer-wrapper">
-          答案：
-          <label wx:for="{{item.correct}}" wx:key="index">{{item}}</label>
+          答案：{{item.correct}}
         </view>
       </view>
       <view class="question-btn-wrapper">
-        <view class="question-btn">关闭答题</view>
-        <view class="question-btn">继续搜题</view>
+        <view class="question-btn" bindtap="closeQuestion">关闭答题</view>
+        <view class="question-btn" bindtap="handleSearch">继续搜题</view>
       </view>
     </view>
 
