@@ -38,7 +38,7 @@
           {{item.title}}
         </view>
         <view class="question-item-img" wx:if="{{item.img}}">
-          <image class="question-img" src="{{item.img}}" />
+          <image class="question-img" mode="heightFix" src="{{item.img}}" />
         </view>
         <view class="question-select-wrapper">
           <view class="answer-select" wx:for="{{item.options}}" wx:key="index">
@@ -55,7 +55,7 @@
       </view>
     </view>
 
-    <view class="question-no" wx:elif="{{noResult}}">
+    <view class="question-no" wx:if="{{noResult}}">
       <image class="question-no-img" src="/static/images/no-question.png" />
       <view class="question-no-tips">暂无搜索数据，换另一题吧！</view>
     </view>
@@ -66,7 +66,7 @@
       <image class="search-tips-close" src="/static/icon/close.png" catchtap="closeTips" />
     </view>
   </view>
-  <view class="fixed" wx:if="{{showTabs}}">
+  <view class="fixed" wx:if="{{showTabs && phoneStatus}}">
     <view class="search-select-mask" mut-bind:tap="closeTabs"></view>
     <view class="search-select-tabs" wx:if="{{phoneStatus}}">
       <view class="select-tabs" catchtap="handleSearch" data-type="ca">
@@ -99,7 +99,4 @@
       </button>
     </view>
   </view>
-  <!-- <view class="search-text">
-    <textarea class="message" name="message" id="message" placeholder="" cols="30" rows="10"></textarea>
-  </view> -->
 </view>

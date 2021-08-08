@@ -44,6 +44,11 @@ Page({
             scorecard: this.data.integration
         }
         server.submitWithdraw(data).then(res => {
+            if (res.code === 0) {
+                this.setData({
+                    jifen: this.data.jifen - this.data.integration
+                })
+            }
             wx.showToast({
                 title: res.message,
                 icon: 'none',

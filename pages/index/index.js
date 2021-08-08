@@ -7,7 +7,7 @@ import { formatTime } from '../../utils/util'
 
 Page({
     data: {
-        phoneStatus: '',
+        phoneStatus: false,
         homeSlide: [],
         swiperList: []
 
@@ -32,9 +32,11 @@ Page({
                         if (res.code === 0) {
                             app.globalData.userInfo = res.data
                             wx.setStorageSync('token', res.data.token)
-                            this.setData({
-                                phoneStatus: res.data.phone_status
-                            })
+                            if (res.data.phone) {
+                                this.setData({
+                                    phoneStatus: true
+                                })
+                            }
                         } else {
                             wx.showToast({
                                 title: res.message,

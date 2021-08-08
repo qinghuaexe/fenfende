@@ -76,7 +76,7 @@ Page({
                         server.getUserInfo().then(res => {
                             if (res.code === 0) {
                                 that.setData({
-                                    userType: this.data.userTypeList[res.data.user_type]
+                                    userType: that.data.userTypeList[res.data.user_type]
                                 })
                             }
                         })

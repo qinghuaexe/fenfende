@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
     data: {
-        groupNavList: [{ name: '直属团队', number: 0 }, { name: '二级团队', number: 0 }],
+        groupNavList: [],
         groupList: [],
         promoteNum: 0,
         proxy: 0,
@@ -12,7 +12,7 @@ Page({
         currentIndex: 0,
         currentPage: 1,
         totalPage: 0,
-        userName: '秀儿'
+        userName: ''
     },
     onShow() {
         let data = {
@@ -49,6 +49,9 @@ Page({
         })
     },
     onReachBottom: function() { //触底开始下一页
+        if (this.data.totalPage < 2) {
+            return
+        }
         if (this.data.currentPage >= this.data.totalPage) {
             wx.showToast({
                 title: '列表已加载完',
@@ -79,7 +82,6 @@ Page({
         this.setData({
             currentIndex: e.currentTarget.dataset.index,
             currentPage: 1,
-            groupList: [],
             totalPage: 0
         })
         let data = {
@@ -134,7 +136,6 @@ Page({
         })
 
     },
-
     handleGoWithdraw: function() {
         wx.navigateTo({ url: '../withdraw/withdraw' })
     }

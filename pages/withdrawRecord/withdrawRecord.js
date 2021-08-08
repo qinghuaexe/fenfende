@@ -41,6 +41,9 @@ Page({
         })
     },
     onReachBottom: function() { //触底开始下一页
+        if (this.data.totalPage < 2) {
+            return
+        }
         if (this.data.currentPage >= this.data.totalPage) {
             wx.showToast({
                 title: '列表已加载完',

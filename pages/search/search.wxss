@@ -323,15 +323,24 @@
     background: #58AFF0;
 }
 
+.pull-more-tip {
+    width: 100%;
+    margin-top: 20rpx;
+    text-align: center;
+    font-size: 14px;
+    font-family: PingFangSC, PingFangSC-Regular;
+    font-weight: 400;
+    color: #333333
+}
+
 .question-item-img {
     margin: 20rpx auto;
     width: 616rpx;
-    height: 302rpx;
+    text-align: center;
 }
 
 .question-img {
-    width: 616rpx;
-    height: 302rpx;
+    height: 250rpx;
 }
 
 .answer-select {

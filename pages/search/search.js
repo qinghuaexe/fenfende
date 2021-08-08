@@ -7,7 +7,7 @@ Page({
     data: {
         searchType: '', // 搜索方式
         userTypeList: ['普通用户', '普通会员', '终身会员'],
-        phoneStatus: '',
+        phoneStatus: false,
         showTips: true,
         showTabs: false,
         showTextarea: false,
@@ -87,6 +87,9 @@ Page({
         })
     },
     onReachBottom: function() {
+        if (this.data.totalPage < 2) {
+            return
+        }
         if (this.data.page >= this.data.totalPage) {
             wx.showToast({
                 title: '列表已加载完',
@@ -106,7 +109,15 @@ Page({
         }
         server.getQusetList(data).then(res => {
             if (res.code === 0) {
-                let list = this.data.questionList.concat(res.data.list)
+                let tempList = res.data.list.map(item => {
+
+                    return {
+                        ...item,
+                        options: item.options.split(','),
+
+                    }
+                })
+                let list = this.data.questionList.concat(tempList)
                 this.setData({
                     questionList: list,
                 })
@@ -159,8 +170,9 @@ Page({
             })
             return
         }
+
         let data = {
-            page: this.data.page,
+            page: 1,
             keyword: this.data.keyword
         }
         server.getQusetList(data).then(res => {
@@ -180,25 +192,44 @@ Page({
 
                     }
                 })
-                console.log(tempList)
-
                 this.setData({
                     questionList: tempList,
                     questionType: res.data.types,
                     totalPage: totalPage,
                     showTextarea: false
                 })
+                server.getUserInfo().then(res => {
+
+                    if (res.code === 0) {
+                        this.setData({
+                            remaining: res.data.number,
+                        })
+                    }
+                })
+                wx.showToast({
+                    title: '查询成功',
+                    icon: 'none',
+                    duration: 2000
+                })
+
             } else if (res.code === 0 && res.data.list.length === 0) {
                 this.setData({
                     showTextarea: false,
                     noResult: true
                 })
+                wx.showToast({
+                    title: '未搜到相关题目',
+                    icon: 'none',
+                    duration: 2000
+                })
+            } else {
+                wx.showToast({
+                    title: res.message,
+                    icon: 'none',
+                    duration: 2000
+                })
             }
-            wx.showToast({
-                title: res.message,
-                icon: 'none',
-                duration: 2000
-            })
+
 
         })
     },
@@ -222,10 +253,6 @@ Page({
             showTabs: true
         })
     },
-    haha: function() {
-        console.log('触发')
-
-    },
     handleSearch: function(e) {
         if (e.currentTarget.dataset.type) {
             this.setData({
@@ -236,14 +263,39 @@ Page({
         if (that.data.searchType === 'pic') {
             this.setData({
                 showTextarea: false,
-                questionList: []
+                questionList: [],
+                page: 1,
+                totalPage: 0,
+                noResult: false,
+                showTabs: false,
             })
             wx.chooseImage({
                 sourceType: ['album'],
+                sizeType: ['compressed'],
                 success: function(res) {
+                    console.log(res.tempFilePaths[0])
+                    let token = wx.getStorageSync('token')
+                    let path = res.tempFilePaths[0]
                     that.setData({
                         showTabs: false
                     })
+                    wx.uploadFile({
+                        url: 'https://admin.ok8809.com/api/question/getQuestionList',
+                        filePath: path,
+                        name: 'file',
+                        formData: {
+                            'token': token
+                        },
+                        success: function(res) {
+                            var data = res.data
+                            console.log(res)
+                        },
+                        fail: function(res) {
+                            console.log(res)
+                        }
+                    })
+
+
                 },
             })
         } else if (that.data.searchType === 'ca') {
@@ -253,6 +305,7 @@ Page({
             })
             wx.chooseImage({
                 sourceType: ['camera'],
+                sizeType: ['compressed'],
                 success: function(res) {
                     console.log(res);
                     that.setData({
@@ -264,12 +317,15 @@ Page({
             this.setData({
                 showTextarea: true,
                 showTabs: false,
-                questionList: []
+                questionList: [],
+                noResult: false
             })
         }
     },
     closeQuestion: function() {
         this.setData({
+            page: 0,
+            totalPage: 0,
             searchType: '',
             keyword: '',
             noResult: false,
