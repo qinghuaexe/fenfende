@@ -336,10 +336,13 @@
 .question-item-img {
     margin: 20rpx auto;
     width: 616rpx;
+    height: 250rpx;
+    overflow: hidden;
     text-align: center;
 }
 
 .question-img {
+    max-width: 616rpx;
     height: 250rpx;
 }
 

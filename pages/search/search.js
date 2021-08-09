@@ -41,28 +41,51 @@ Page({
         this.setData({
             searchType: app.globalData.searchType
         })
+        var that = this
         if (app.globalData.searchType === 'pic') {
             app.globalData.searchType = ''
+            this.initData()
             await wait(500)
             wx.chooseImage({
                 sourceType: ['album'],
+                sizeType: ['compressed'],
                 success: function(res) {
-                    console.log(res);
+                    let path = res.tempFilePaths[0]
+                    that.searchPic(path)
+                },
+                fail: function() {
+                    wx.showToast({
+                        title: '选取图片失败',
+                        icon: 'icon',
+                        duration: 2000
+                    })
                 }
+
             })
 
         } else if (app.globalData.searchType === 'ca') {
             app.globalData.searchType = ''
+            this.initData()
             await wait(500)
             wx.chooseImage({
                 sourceType: ['camera'],
+                sizeType: ['compressed'],
                 success: function(res) {
-                    console.log(res);
+                    let path = res.tempFilePaths[0]
+                    that.searchPic(path)
 
+                },
+                fail: function() {
+                    wx.showToast({
+                        title: '拍摄图片失败',
+                        icon: 'icon',
+                        duration: 2000
+                    })
                 }
             })
         } else if (app.globalData.searchType === 'text') {
             app.globalData.searchType = ''
+            this.initData()
             await wait(500)
             this.setData({
                 showTextarea: true
@@ -189,22 +212,14 @@ Page({
                     return {
                         ...item,
                         options: item.options.split(','),
-
                     }
                 })
                 this.setData({
                     questionList: tempList,
                     questionType: res.data.types,
                     totalPage: totalPage,
-                    showTextarea: false
-                })
-                server.getUserInfo().then(res => {
-
-                    if (res.code === 0) {
-                        this.setData({
-                            remaining: res.data.number,
-                        })
-                    }
+                    showTextarea: false,
+                    remaining: res.data.number
                 })
                 wx.showToast({
                     title: '查询成功',
@@ -261,65 +276,48 @@ Page({
         }
         var that = this
         if (that.data.searchType === 'pic') {
-            this.setData({
-                showTextarea: false,
-                questionList: [],
-                page: 1,
-                totalPage: 0,
-                noResult: false,
-                showTabs: false,
-            })
+            that.initData()
             wx.chooseImage({
                 sourceType: ['album'],
                 sizeType: ['compressed'],
                 success: function(res) {
-                    console.log(res.tempFilePaths[0])
-                    let token = wx.getStorageSync('token')
+
                     let path = res.tempFilePaths[0]
                     that.setData({
                         showTabs: false
                     })
-                    wx.uploadFile({
-                        url: 'https://admin.ok8809.com/api/question/getQuestionList',
-                        filePath: path,
-                        name: 'file',
-                        formData: {
-                            'token': token
-                        },
-                        success: function(res) {
-                            var data = res.data
-                            console.log(res)
-                        },
-                        fail: function(res) {
-                            console.log(res)
-                        }
-                    })
-
-
+                    that.searchPic(path)
                 },
+                fail: function() {
+                    wx.showToast({
+                        title: '选取图片失败',
+                        icon: 'icon',
+                        duration: 2000
+                    })
+                }
             })
         } else if (that.data.searchType === 'ca') {
-            this.setData({
-                showTextarea: false,
-                questionList: []
-            })
+            this.initData()
             wx.chooseImage({
                 sourceType: ['camera'],
                 sizeType: ['compressed'],
                 success: function(res) {
-                    console.log(res);
                     that.setData({
                         showTabs: false
+                    })
+                    let path = res.tempFilePaths[0]
+                    that.searchPic(path)
+                },
+                fail: function() {
+                    wx.showToast({
+                        title: '选取图片失败',
+                        icon: 'icon',
+                        duration: 2000
                     })
                 }
             })
         } else if (that.data.searchType === 'text') {
-            this.setData({
-                showTextarea: true,
-                showTabs: false,
-                questionList: [],
-                noResult: false
-            })
+            this.initData()
         }
     },
     closeQuestion: function() {
@@ -331,6 +329,97 @@ Page({
             noResult: false,
             showTabs: false,
             questionList: []
+        })
+    },
+    searchPic(url) {
+        var that = this
+        let token = wx.getStorageSync('token')
+        wx.showLoading({
+            title: '列表加载中',
+            mask: true
+        })
+        wx.uploadFile({
+            url: 'https://admin.ok8809.com/api/question/getQuestionList',
+            filePath: url,
+            name: 'file',
+            formData: {
+                'token': token
+            },
+            success: function(res) {
+                wx.hideLoading()
+                res = JSON.parse(res.data)
+                if (res.code === 0 && res.data.list.length !== 0) {
+                    let totalPage
+                    if (res.data.total % res.data.per_page) {
+                        totalPage = Math.floor(res.data.total / res.data.per_page) + 1
+                    } else {
+                        totalPage = Math.floor(res.data.total / res.data.per_page)
+                    }
+
+                    let tempList = res.data.list.map(item => {
+
+                        return {
+                            ...item,
+                            options: item.options.split(','),
+                        }
+                    })
+                    that.setData({
+                        questionList: tempList,
+                        questionType: res.data.types,
+                        totalPage: totalPage,
+                        showTextarea: false
+                    })
+                    server.getUserInfo().then(res => {
+
+                        if (res.code === 0) {
+                            that.setData({
+                                remaining: res.data.number,
+                            })
+                        }
+                    })
+                    wx.showToast({
+                        title: '查询成功',
+                        icon: 'none',
+                        duration: 2000
+                    })
+
+                } else if (res.code === 0 && res.data.list.length === 0) {
+                    that.setData({
+                        showTextarea: false,
+                        noResult: true
+                    })
+                    wx.showToast({
+                        title: '未搜到相关题目',
+                        icon: 'none',
+                        duration: 2000
+                    })
+                } else {
+                    wx.showToast({
+                        title: res.message,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+
+            },
+            fail: function(res) {
+                wx.showToast({
+                    title: '上传图片失败',
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
+    },
+    // 重置搜索数据
+    initData() {
+        this.setData({
+            showTextarea: false,
+            questionList: [],
+            page: 1,
+            totalPage: 0,
+            noResult: false,
+            showTabs: false,
         })
     }
 })

@@ -93,8 +93,8 @@ Page({
             mask: true
         })
         server.groupList(data).then(res => {
+            wx.hideLoading()
             if (res.code === 0) {
-                wx.hideLoading()
                 let totalPage
                 if (res.data.total % res.data.per_page) {
                     totalPage = Math.floor(res.data.total / res.data.per_page) + 1

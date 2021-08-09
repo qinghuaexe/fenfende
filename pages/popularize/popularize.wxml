@@ -3,13 +3,13 @@
   <view class="pop-title">
     <view class="pop-title2">
       <view class="pop-title-small">只需</view>
-      <view class="pop-title-big">1000</view>
+      <view class="pop-title-big">{{money}}</view>
       <view class="pop-title-small">元</view>
     </view>
     <view class="pop-title1">申请成为代理</view>
   </view>
   <view class="pop-content">
-    <textarea class="message" model:value="{{describe}}" name="message" id="message" placeholder="平台申请代理只需1000元" cols="30" rows="10"></textarea>
+    <textarea class="message" model:value="{{describe}}" name="message" id="message" placeholder="平台申请代理只需{{money}}元" cols="30" rows="10"></textarea>
     <view class="pop-submit" bindtap="submit">申请代理</view>
   </view>
 </view>

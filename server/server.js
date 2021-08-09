@@ -68,6 +68,10 @@ const withdrawRecord = (data) => {
     return http({ url: '/api/pay/withdrawLog', data })
 }
 
+const payAgency = (data = {}) => {
+    return http({ url: '/api/pay/payAgency', data })
+}
+
 export default {
     homeSlide,
     countUserActive,
@@ -85,5 +89,6 @@ export default {
     league,
     getWithdraw,
     submitWithdraw,
-    withdrawRecord
+    withdrawRecord,
+    payAgency
 }
