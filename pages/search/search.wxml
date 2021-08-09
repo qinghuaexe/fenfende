@@ -45,16 +45,13 @@
             {{answerTab[index]}}、{{item}}
           </view>
         </view>
-        <view class="question-answer-wrapper">
-          答案：{{item.correct}}
-        </view>
+        <view class="question-answer-wrapper">答案：{{item.correct}}</view>
       </view>
       <view class="question-btn-wrapper">
         <view class="question-btn" bindtap="closeQuestion">关闭答题</view>
         <view class="question-btn" bindtap="handleSearch">继续搜题</view>
       </view>
     </view>
-
     <view class="question-no" wx:if="{{noResult}}">
       <image class="question-no-img" src="/static/images/no-question.png" />
       <view class="question-no-tips">暂无搜索数据，换另一题吧！</view>
@@ -62,8 +59,10 @@
   </view>
   <view class="search-tips-wrapper" wx:if="{{showTips}}">
     <view class="search-tips">
-      昨日共 {{people}} 人，成功答题 {{questionNum}} 题
-      <image class="search-tips-close" src="/static/icon/close.png" catchtap="closeTips" />
+      <view class="search-tips-text">昨日共 {{people}} 人，成功答题 {{questionNum}} 题</view>
+      <view class="close-img" catchtap="closeTips" >
+        <image class="search-tips-close" src="/static/icon/close.png" />
+      </view>
     </view>
   </view>
   <view class="fixed" wx:if="{{showTabs && phoneStatus}}">

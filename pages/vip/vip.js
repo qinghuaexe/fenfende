@@ -7,7 +7,7 @@ Page({
         currentIndex: 0,
         order: '',
         userInfo: {},
-        userTypeList: ['普通用户', '普通会员', '终身会员'],
+        userTypeList: ['非会员', '普通会员', '终身会员'],
         userType: ''
     },
 

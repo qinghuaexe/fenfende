@@ -67,11 +67,17 @@
     z-index: 999;
 }
 
-.my-qrcode {
-    display: block;
+.qrcode-wrapper {
     width: 250rpx;
     height: 250rpx;
     margin: 0 auto;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.my-qrcode {
+    width: 250rpx;
+    height: 250rpx;
 }
 
 .my-qrcode-tips {

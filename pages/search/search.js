@@ -6,7 +6,7 @@ const app = getApp()
 Page({
     data: {
         searchType: '', // 搜索方式
-        userTypeList: ['普通用户', '普通会员', '终身会员'],
+        userTypeList: ['非会员', '普通会员', '终身会员'],
         phoneStatus: false,
         showTips: true,
         showTabs: false,
@@ -367,15 +367,8 @@ Page({
                         questionList: tempList,
                         questionType: res.data.types,
                         totalPage: totalPage,
-                        showTextarea: false
-                    })
-                    server.getUserInfo().then(res => {
-
-                        if (res.code === 0) {
-                            that.setData({
-                                remaining: res.data.number,
-                            })
-                        }
+                        showTextarea: false,
+                        remaining: res.data.number
                     })
                     wx.showToast({
                         title: '查询成功',

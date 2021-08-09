@@ -6,7 +6,9 @@
   </view>
   <view class="my-pop-des2">{{text3}}</view>
   <view class="my-pop-qrcode">
-    <image class="my-qrcode" src="{{qrCodeUrl}}" />
+    <view class="qrcode-wrapper">
+      <image class="my-qrcode" src="{{qrCodeUrl}}" />
+    </view>
     <view class="my-qrcode-tips">长按二维码或扫一扫</view>
     <view class="my-pop-btn">
       <view class="btn-1" bindtap="shareImage">分享</view>

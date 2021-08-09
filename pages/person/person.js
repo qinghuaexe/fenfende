@@ -5,9 +5,10 @@ Page({
     data: {
         userType: '',
         userInfo: {},
-        userTypeList: ['普通用户', '普通会员', '终身会员'],
+        userTypeList: ['非会员', '普通会员', '终身会员'],
         scorecard: 0,
-        teamNumber: 0
+        teamNumber: 0,
+        test_type: 1
     },
     onLoad() {
         this.setData({
@@ -23,7 +24,8 @@ Page({
                     remaining: res.data.number,
                     userType: this.data.userTypeList[res.data.user_type],
                     scorecard: parseInt(res.data.scorecard),
-                    teamNumber: res.data.teamNumber
+                    teamNumber: res.data.teamNumber,
+                    test_type: res.data.test_type
                 })
             }
 

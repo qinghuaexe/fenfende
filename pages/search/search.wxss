@@ -35,6 +35,7 @@
 
 .search-amount-type {
     margin-left: 20rpx;
+    padding: 4rpx 20rpx;
     height: 40rpx;
     opacity: 1;
     background: rgba(51, 178, 50, 0.24);
@@ -109,6 +110,7 @@
 
 .search-tips {
     width: 92%;
+    overflow: hidden;
     height: 70rpx;
     margin: 0 auto;
     display: flex;
@@ -118,6 +120,27 @@
     font-family: PingFangSC, PingFangSC-Regular;
     font-weight: 400;
     color: #666666;
+}
+
+.search-tips-text {
+    animation: notableAnimation 10s linear infinite;
+}
+
+.close-img {
+    text-align: right;
+    width: 100rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+@keyframes notableAnimation {
+    0% {
+        left: 100%;
+    }
+    100% {
+        transform: translateX(-100%);
+        left: 0;
+    }
 }
 
 .search-tips-close {

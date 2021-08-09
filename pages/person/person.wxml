@@ -44,7 +44,7 @@
     <image class="person-ad-img" src="/static/images/person-ad.png" alt="广告" />
   </view>
   <view class="person-item-list">
-    <view class="list-item" bindtap="handleToVip">
+    <view class="list-item" wx:if="{{test_type}}" bindtap="handleToVip">
       <view class="list-item-title">
         <image class="list-item-icon" src="/static/icon/person-list-1.png" alt='图标' />
         <view class="list-item-name">成为会员</view>
