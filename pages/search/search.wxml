@@ -11,17 +11,17 @@
     <view class="search-amount-type">已购{{userType}}</view>
   </view>
   <view class="search-type-wrapper" bindtap="handleShowTabs">
-    <view class="search-input">上传截图答案</view>
+    <view class="search-input">点击并上传12123截图，立即搜题</view>
     <view class="search-btn">
       <image class="search-type-icon" src="/static/icon/search-type-1.png" />
       <image class="arrow-down" src="/static/icon/arrow-down.png" />
     </view>
   </view>
   <view class="search-text" wx:if="{{showTextarea}}">
-    <textarea class="message" name="message" id="message" model:value="{{keyword}}" placeholder="输入文字搜题" cols="30" rows="10"></textarea>
+    <textarea class="message" name="message" id="message" model:value="{{keyword}}" placeholder="请输入至少4个字" cols="30" rows="10"></textarea>
     <view class="search-text-tips">
       <label>*</label>
-      提示：文字内容文字内容
+      提示：推荐使用"截图搜索"
     </view>
     <view class="search-text-btn">
       <view class="search-text-confrim" bindtap="resetText">重置</view>
@@ -49,7 +49,7 @@
       </view>
       <view class="question-btn-wrapper">
         <view class="question-btn" bindtap="closeQuestion">关闭答题</view>
-        <view class="question-btn" bindtap="handleSearch">继续搜题</view>
+        <view class="question-btn" bindtap="handleShowTabs">继续搜题</view>
       </view>
     </view>
     <view class="question-no" wx:if="{{noResult}}">

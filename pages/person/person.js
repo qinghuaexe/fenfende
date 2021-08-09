@@ -8,7 +8,7 @@ Page({
         userTypeList: ['非会员', '普通会员', '终身会员'],
         scorecard: 0,
         teamNumber: 0,
-        test_type: 1
+        test_type: 0
     },
     onLoad() {
         this.setData({

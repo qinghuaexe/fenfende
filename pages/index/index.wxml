@@ -10,7 +10,7 @@
       </swiper></view>
   <view class="home-content">
     <view class="home-function">
-      <view class="home-function-item" bindtap="handleGoVip">
+      <view class="home-function-item">
         <image class="item-img" src="/static/images/home-fun-1.png" />
         <view class="item-name">会员充值</view>
       </view>

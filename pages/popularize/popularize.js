@@ -11,7 +11,7 @@ Page({
     },
     onLoad() {
         server.payAgency().then(res => {
-            console.log(res)
+
             if (res.code === 0) {
                 this.setData({
                     money: parseInt(res.data.money),
@@ -39,7 +39,6 @@ Page({
                 order: this.data.order
             }
             server.payTest(data).then(res => {
-                console.log(res)
                 if (res.code === 0) {
                     let info = res.data
                     var that = this

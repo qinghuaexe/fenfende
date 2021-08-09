@@ -48,7 +48,6 @@ Page({
                     src: that.data.qrCodeUrl,
                     success: function(res) {
                         var path2 = res.path
-                        console.log(path1, path2)
                         const ctx = wx.createCanvasContext('myCanvas')
                             // 底图
                         ctx.drawImage(path1, 0, 0, 375, 686)
@@ -67,11 +66,9 @@ Page({
                         ctx.fillText('长按二维码或扫一扫', 375 / 2, 545)
                         ctx.stroke()
                         ctx.draw(true, () => {
-                            console.log("绘制成功")
                             wx.canvasToTempFilePath({
                                 canvasId: 'myCanvas',
                                 success(res) {
-                                    console.log(res)
                                     that.setData({
                                         tempPath: res.tempFilePath
                                     })
@@ -85,7 +82,6 @@ Page({
         })
     },
     shareImage() {
-        console.log(1, this.data.tempPath)
         var cansurl = this.data.tempPath
         wx.showShareImageMenu({
             path: cansurl
@@ -96,7 +92,6 @@ Page({
         wx.saveImageToPhotosAlbum({
             filePath: cansurl,
             success(res) {
-                console.log(res)
                 wx.showModal({
                     content: '图片已保存到相册，赶紧晒一下吧~',
                     showCancel: false,
@@ -104,15 +99,12 @@ Page({
                     confirmColor: '#333',
                     success: function(res) {
                         if (res.confirm) {
-                            console.log('用户点击确定');
 
                         }
                     }
                 })
             },
-            fail(res) {
-                console.log(res)
-            }
+            fail(res) {}
         })
     }
 })

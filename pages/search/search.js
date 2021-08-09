@@ -38,36 +38,36 @@ Page({
 
     },
     async onShow() {
-        this.setData({
-            searchType: app.globalData.searchType
-        })
+
         var that = this
         if (app.globalData.searchType === 'pic') {
+            this.setData({
+                searchType: app.globalData.searchType
+            })
             app.globalData.searchType = ''
             this.initData()
             await wait(500)
             wx.chooseImage({
+                count: 1,
                 sourceType: ['album'],
                 sizeType: ['compressed'],
                 success: function(res) {
                     let path = res.tempFilePaths[0]
                     that.searchPic(path)
                 },
-                fail: function() {
-                    wx.showToast({
-                        title: '选取图片失败',
-                        icon: 'icon',
-                        duration: 2000
-                    })
-                }
+                fail: function() {}
 
             })
 
         } else if (app.globalData.searchType === 'ca') {
+            this.setData({
+                searchType: app.globalData.searchType
+            })
             app.globalData.searchType = ''
             this.initData()
             await wait(500)
             wx.chooseImage({
+                count: 1,
                 sourceType: ['camera'],
                 sizeType: ['compressed'],
                 success: function(res) {
@@ -75,15 +75,12 @@ Page({
                     that.searchPic(path)
 
                 },
-                fail: function() {
-                    wx.showToast({
-                        title: '拍摄图片失败',
-                        icon: 'icon',
-                        duration: 2000
-                    })
-                }
+                fail: function() {}
             })
         } else if (app.globalData.searchType === 'text') {
+            this.setData({
+                searchType: app.globalData.searchType
+            })
             app.globalData.searchType = ''
             this.initData()
             await wait(500)
@@ -264,6 +261,7 @@ Page({
         })
     },
     handleShowTabs: function() {
+        this.initData()
         this.setData({
             showTabs: true
         })
@@ -276,8 +274,10 @@ Page({
         }
         var that = this
         if (that.data.searchType === 'pic') {
+            console.log(that.data.searchType)
             that.initData()
             wx.chooseImage({
+                count: 1,
                 sourceType: ['album'],
                 sizeType: ['compressed'],
                 success: function(res) {
@@ -288,17 +288,12 @@ Page({
                     })
                     that.searchPic(path)
                 },
-                fail: function() {
-                    wx.showToast({
-                        title: '选取图片失败',
-                        icon: 'icon',
-                        duration: 2000
-                    })
-                }
+                fail: function() {}
             })
         } else if (that.data.searchType === 'ca') {
             this.initData()
             wx.chooseImage({
+                count: 1,
                 sourceType: ['camera'],
                 sizeType: ['compressed'],
                 success: function(res) {
@@ -308,16 +303,13 @@ Page({
                     let path = res.tempFilePaths[0]
                     that.searchPic(path)
                 },
-                fail: function() {
-                    wx.showToast({
-                        title: '选取图片失败',
-                        icon: 'icon',
-                        duration: 2000
-                    })
-                }
+                fail: function() {}
             })
         } else if (that.data.searchType === 'text') {
             this.initData()
+            this.setData({
+                showTextarea: true
+            })
         }
     },
     closeQuestion: function() {

@@ -8,11 +8,7 @@ App({
         inviteCode: 0
     },
 
-    onShow(options) {
-        // var obj = wx.getLaunchOptionsSync()
-        // console.log(obj)
 
-    },
 
     onLaunch() {
         // 登录
